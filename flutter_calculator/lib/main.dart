@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 10, 28, 12),
                   child: Text(
-                    strExp == "" ? "Tap on the keypad to calc" : strExp,
+                    strExp == "" ? "Tap on the keypad to calculate" : strExp,
                     textAlign: TextAlign.right,
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400, color: Colors.grey),
                   ),
