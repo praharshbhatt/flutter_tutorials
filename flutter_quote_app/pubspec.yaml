@@ -1,0 +1,38 @@
+name: flutterquoteapp
+description: A Flutter quotes application powered by https:&#x2F;&#x2F;github.com&#x2F;lukePeavey&#x2F;quotable
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+  http: ^0.12.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+
+
+  fonts:
+    - family: BalsamiqSans
+      fonts:
+        - asset: assets/fonts/BalsamiqSans-Regular.ttf
+        - asset: assets/fonts/BalsamiqSans-Italic.ttf
+          style: italic
+        - asset: assets/fonts/BalsamiqSans-Bold.ttf
+          weight: 500
+
+    - family: AbrilFatface
+      fonts:
+        - asset: assets/fonts/AbrilFatface-Regular.ttf
