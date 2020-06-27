@@ -7,6 +7,7 @@ ThemeData getApplicationTheme() {
     accentColor: Colors.black,
 
     scaffoldBackgroundColor: Colors.white,
+    backgroundColor: Colors.white,
 
     buttonColor: Colors.black,
 

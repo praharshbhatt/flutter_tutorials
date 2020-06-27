@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutterquoteapp/models/quote_model.dart';
 import 'package:flutterquoteapp/services/api_client.dart';
-import 'package:http/http.dart' as http;
+
+import 'homescreen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -8,9 +10,14 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  //For the loading indicator
   bool success = false;
 
-  FetchQuotes quotes = new FetchQuotes();
+  //API Client
+  FetchQuotes fetchQuotes = new FetchQuotes();
+
+  //Model
+  Quotes quotes;
 
   @override
   void initState() {
@@ -20,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   loadQuotesList() async {
-    await quotes.getQuotes();
+    quotes = await fetchQuotes.getQuotes();
 
     setState(() {
       success = true;
@@ -39,8 +46,6 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
         elevation: 0,
       ),
-
-
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -93,7 +98,9 @@ class _SplashScreenState extends State<SplashScreen> {
                     "GET STARTED",
                     style: theme.textTheme.caption.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen(quotes.lstResults)));
+                  },
                 ),
         ],
       ),

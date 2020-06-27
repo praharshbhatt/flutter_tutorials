@@ -7,7 +7,10 @@ class FetchQuotes {
     http.Response response;
 
     response = await http.get("https://api.quotable.io/quotes");
+
+    //Quotes model
     Quotes quotes;
+
     if (response.statusCode == 200) {
       //successfully loaded
 
@@ -16,6 +19,18 @@ class FetchQuotes {
       return quotes;
     } else {
       //Error
+      return null;
+    }
+  }
+
+  //Gets the list of all the tags that this API provides
+  Future<Tags> getTags() async {
+    http.Response response = await http.get("https://api.quotable.io/tags");
+
+    if (response.statusCode == 200) {
+      Tags tags = new Tags.fromJson(response.body);
+      return tags;
+    } else {
       return null;
     }
   }
