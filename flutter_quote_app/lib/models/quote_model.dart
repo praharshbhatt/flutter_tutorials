@@ -40,3 +40,20 @@ class Tag {
     quoteCount = mapTag["quoteCount"];
   }
 }
+
+class RandomQuote {
+  String id, author, content;
+  int length;
+  List lstTags;
+
+  RandomQuote.fromJson(String responseData) {
+    Map mapData = jsonDecode(responseData);
+
+    id = mapData["_id"];
+    author = mapData["author"];
+    content = mapData["content"];
+    length = mapData["length"];
+
+    lstTags = mapData["tags"];
+  }
+}

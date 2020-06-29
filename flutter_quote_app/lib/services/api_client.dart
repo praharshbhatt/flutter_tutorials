@@ -34,4 +34,14 @@ class FetchQuotes {
       return null;
     }
   }
+
+  Future<RandomQuote> getRandomQuote() async {
+    http.Response response = await http.get("https://api.quotable.io/random");
+
+    if (response.statusCode == 200) {
+      return RandomQuote.fromJson(response.body);
+    } else {
+      return null;
+    }
+  }
 }
